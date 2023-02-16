@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mentalhealth/util/emoticon_face.dart';
+import 'package:mentalhealth/util/exercise_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,8 +19,8 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
         ],
       ),
       body: SafeArea(
@@ -218,9 +219,7 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 20,
                             ),
                           ),
-                          Icon(
-                            Icons.more_horiz
-                          )
+                          Icon(Icons.more_horiz)
                         ],
                       ),
                       SizedBox(
@@ -228,49 +227,30 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                       // listview of exercise
-                      Container(
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.favorite
-                            ),
-                            SizedBox(
-                              width: 12,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // title
-                                Text(
-                                  "Speaking Skills",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-
-                                // subtitle
-                                Text(
-                                  "16 Exercises",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
+                     Expanded(
+                       child: ListView(
+                        children: [
+                          ExerciseTil(
+                            icon: Icons.favorite,
+                            exeriseName: "Speaking Sills",
+                            numberOfExercises: '16',
+                            color: Colors.orange,
+                          ),
+                          ExerciseTil(
+                            icon: Icons.person,
+                            exeriseName: "Reading Sills",
+                            numberOfExercises: '8',
+                            color: Colors.green,
+                          ),
+                          ExerciseTil(
+                            icon: Icons.star,
+                            exeriseName: "Writing Sills",
+                            numberOfExercises: '20',
+                            color: Colors.pink,
+                          ),
+                        ],
+                       ),
+                     )
                     ],
                   ),
                 ),
