@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class EmoticonFace extends StatelessWidget {
-  const EmoticonFace({Key? key}) : super(key: key);
+  final String emoticonFace;
+
+  const EmoticonFace({
+    Key? key,
+    required this.emoticonFace,
+    }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +18,12 @@ class EmoticonFace extends StatelessWidget {
       padding: EdgeInsets.all(16),
       child: Center(
         child: Text(
-          "😄",
+          emoticonFace,
           style: TextStyle(
             fontSize: 28,
           ),
-          ),
         ),
+      ),
     );
   }
 }
